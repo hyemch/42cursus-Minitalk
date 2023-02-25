@@ -1,3 +1,5 @@
 # 42cursus-Minitalk
 
-> ./client [pid] [string] ./server
+```
+./client [pid] [string] ./server
+```
