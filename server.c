@@ -12,8 +12,6 @@
 
 #include "server.h"
 
-#include <stdio.h>
-
 static void	signal_handler(int sig)
 {
 	static char	recieve_data;
