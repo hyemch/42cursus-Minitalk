@@ -12,6 +12,8 @@
 
 #include "server.h"
 
+#include <stdio.h>
+
 static void	signal_handler(int sig)
 {
 	static char	recieve_data;
@@ -24,8 +26,6 @@ static void	signal_handler(int sig)
 	bit_cnt++;
 	if (bit_cnt == 8)
 	{
-		if (recieve_data == '\0')
-			write(1, "\n", 1);
 		bit_cnt = 0;
 		write(1, &recieve_data, 1);
 		recieve_data = 0;
