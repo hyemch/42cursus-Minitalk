@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyecheon <hyecheon@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: hyecheon <hyecheon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 16:36:11 by hyecheon          #+#    #+#             */
-/*   Updated: 2023/02/25 16:36:12 by hyecheon         ###   ########.fr       */
+/*   Created: 2022/07/18 16:54:19 by hyecheon          #+#    #+#             */
+/*   Updated: 2022/09/09 16:18:07 by hyecheon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef SERVER_H
-# define SERVER_H
-
-# include "./libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <signal.h>
-
-#endif
+int	ft_isalpha(int c)
+{
+	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'));
+}

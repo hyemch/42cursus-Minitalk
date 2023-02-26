@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyecheon <hyecheon@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 16:36:11 by hyecheon          #+#    #+#             */
-/*   Updated: 2023/02/25 16:36:12 by hyecheon         ###   ########.fr       */
+/*   Created: 2022/08/22 01:50:45 by hyecheon          #+#    #+#             */
+/*   Updated: 2022/08/22 01:51:47 by hyecheon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef SERVER_H
-# define SERVER_H
-
-# include "./libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <signal.h>
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
+}

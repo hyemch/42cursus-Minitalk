@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyecheon <hyecheon@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: hyecheon <hyecheon@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 16:36:11 by hyecheon          #+#    #+#             */
-/*   Updated: 2023/02/25 16:36:12 by hyecheon         ###   ########.fr       */
+/*   Created: 2022/07/18 20:57:20 by hyecheon          #+#    #+#             */
+/*   Updated: 2022/07/19 16:05:28 by hyecheon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef SERVER_H
-# define SERVER_H
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*ptr;
+	unsigned char	value;
 
-# include "./libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <signal.h>
-
-#endif
+	ptr = (unsigned char *)b;
+	value = (unsigned char)c;
+	while (len)
+	{
+		*ptr++ = value;
+		len--;
+	}
+	return (b);
+}

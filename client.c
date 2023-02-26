@@ -12,16 +12,6 @@
 
 #include "client.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (*(s + i) != '\0')
-		i++;
-	return (i);
-}
-
 int	send_str(pid_t pid, char *str)
 {
 	int	str_i;
@@ -30,8 +20,8 @@ int	send_str(pid_t pid, char *str)
 	str_i = 0;
 	while (i < ft_strlen(str))
 	{
-		bit_i = 7;
-		while (bit_i >= 0)
+		bit_i = 0;
+		while (bit_i < 8)
 		{
 			if (((str[i] >> bit_i) & 1) == 1)
 				kill(pid, SIGUSR1);
@@ -42,31 +32,6 @@ int	send_str(pid_t pid, char *str)
 		}
 		str_i++;
 	}
-}
-
-int	ft_atoi(const char *str)
-{
-	int		sign;
-	long	result;
-
-	sign = 1;
-	result = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
-	while (*str && *str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		if (result < 0)
-			return ((sign + 1) / -2);
-		str++;
-	}
-	return (result * sign);
 }
 
 int	main(int argc, char **argv)

@@ -17,6 +17,7 @@ int	main(void)
 	pid_t	pid;
 
 	pid = getpid();
-	//1. 피드 출력 ->ascii로 바꿔서
-	//
+	ft_putstr_fd("pid : ", 1);
+	ft_putnbr_fd(pid, 1);
+	write(1, "\n", 1);
 }
