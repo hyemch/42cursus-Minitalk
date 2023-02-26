@@ -12,35 +12,49 @@
 
 #include "client.h"
 
-int	send_str(pid_t pid, char *str)
+void	error_exit(char *message)
 {
-	int	str_i;
+	write(2, message, ft_strlen(message));
+	exit(EXIT_FAILURE);
+}
+
+void	send_sig(pid_t pid, char c)
+{
 	int	bit_i;
 
-	str_i = 0;
-	while (i < ft_strlen(str))
+	bit_i = 0;
+	while (bit_i < 8)
 	{
-		bit_i = 0;
-		while (bit_i < 8)
-		{
-			if (((str[i] >> bit_i) & 1) == 1)
-				kill(pid, SIGUSR1);
-			else
-				kill(pid, SIGUSR2);
-			usleep(100);
-			bit_i--;
-		}
-		str_i++;
+		if (((c >> bit_i) & 1) == 1)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		usleep(100);
+		bit_i++;
+	}
+}
+
+void	send_str(pid_t pid, char *str)
+{
+	int	i;
+
+	i = 0;
+	while (i < (int)ft_strlen(str))
+	{
+		send_sig(pid, str[i]);
+		i++;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	pit_t	pid;
+	pid_t	pid;
 
 	if (argc != 3)
-		exit(EXIT_FAILURE);
+		error_exit("Usage : ./client [pid] [string]\n");
 	pid = ft_atoi(argv[1]);
+	if (pid < 0)
+		error_exit("Invalid pid\n");
 	send_str(pid, argv[2]);
 	return (0);
 }
