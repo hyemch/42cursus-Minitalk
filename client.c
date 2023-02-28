@@ -51,10 +51,10 @@ int	main(int argc, char **argv)
 	pid_t	pid;
 
 	if (argc != 3)
-		error_exit("Usage : ./client [pid] [string]\n");
+		error_exit("Usage : ./client [server pid] [string]\n");
 	pid = ft_atoi(argv[1]);
-	if (pid < 0)
-		error_exit("Invalid pid\n");
+	if (100 > pid || pid > 99998)
+		error_exit("Pid Error\n");
 	send_str(pid, argv[2]);
 	return (0);
 }
